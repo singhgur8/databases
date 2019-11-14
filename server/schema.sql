@@ -1,10 +1,30 @@
-CREATE DATABASE chat;
+CREATE DATABASE IF NOT EXISTS chat;
 
 USE chat;
 
-CREATE TABLE messages (
-  /* Describe your table here.*/
+CREATE TABLE IF NOT EXISTS users (
+  ID INT NOT NULL AUTO_INCREMENT,
+  UserName varchar(255) NOT NULL,
+  PRIMARY KEY (ID)
 );
+
+CREATE TABLE IF NOT EXISTS rooms (
+  ID INT NOT NULL AUTO_INCREMENT,
+  RoomName varchar(255) NOT NULL,
+  PRIMARY KEY (ID)
+);
+
+CREATE TABLE IF NOT EXISTS messages (
+  ID INT NOT NULL AUTO_INCREMENT,
+  MSG varchar(255) NOT NULL,
+  RoomId INT NOT NULL,
+  UserId INT NOT NULL,
+  PRIMARY KEY (ID),
+  FOREIGN KEY (UserId) REFERENCES users(ID),
+  FOREIGN KEY (RoomId) REFERENCES rooms(ID)
+);
+
+
 
 /* Create other tables and define schemas for them here! */
 
