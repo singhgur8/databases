@@ -9,7 +9,11 @@ module.exports = {
   users: {
     // Ditto as above.
     get: function () {},
-    post: function () {}
+    post: function () {
+      //want to post into db frmo here, its loaded in
+      console.log('users ran');
+      res.sendStatus(201);
+    }
   }
 };
 

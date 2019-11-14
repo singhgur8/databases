@@ -15,8 +15,12 @@ module.exports = {
     // Ditto as above
     get: function (req, res) {},
     post: function (req, res) {
-      console.log('users ran');
-      res.send();
+      // console.log('users ran');
+      //controller calls the mo
+      del post req
+      // console.log(req);
+      models.users.post(req.body.username);
+      // res.sendStatus(201);
     }
   }
 };
