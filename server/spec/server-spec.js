@@ -19,8 +19,8 @@ describe('Persistent Node Chat Server', function() {
     var tablename = 'messages'; // TODO: fill this out
 
     /* Empty the db table before each test so that multiple tests
-     * (or repeated runs of the tests) won't screw each other up: */
-    dbConnection.query('truncate ' + tablename, done);
+    * (or repeated runs of the tests) won't screw each other up: */
+   dbConnection.query('truncate ' + tablename, done);
   });
 
   afterEach(function() {
@@ -53,6 +53,7 @@ describe('Persistent Node Chat Server', function() {
         var queryString = 'SELECT * FROM messages;';
         var queryArgs = [];
         console.log('this funciton runs');
+        // console.log('specdb: ', dbConnection.query);
         dbConnection.query(queryString, queryArgs, function(err, results) {
           // Should have one result:
           console.log(err);
