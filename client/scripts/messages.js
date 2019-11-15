@@ -15,7 +15,9 @@ var Messages = {
   update: function(messages, callback = ()=>{}) {
     var length = Object.keys(Messages._data).length;
 
-    for (let message of messages) {
+    //page not loading becasue server side sending array  of objects in a format
+    //that does not match the way the front end client is processing here
+    for (var i = 0; i < messages.length; i++) {
       Messages._data[message.objectId] = Messages._conform(message);
     }
 
@@ -32,5 +34,5 @@ var Messages = {
     message.roomname = message.roomname || '';
     return message;
   }
-  
+
 };
